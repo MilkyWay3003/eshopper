@@ -44,14 +44,30 @@
                 </ul>
             </div>-->
         </div><!--/brands_products-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
 
         <div class="price-range"><!--price-range-->
             <h2>Price Range</h2>
             <div class="well text-center">
-                <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
+                <input type="text" id="range" ><br />
                 <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
             </div>
         </div><!--/price-range-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js"></script>
+        <script src="{{asset('js')}}/jquery.js"></script>
+<script>
+
+    var slider = new Slider("#range", {
+        min: 0,
+        max: 100,
+        value: [50, 80],
+        range: true,
+        tooltip: 'always'
+    });
+
+    console.log($("#range").val());
+</script>
 
         <div class="shipping text-center"><!--shipping-->
             <img src="{{asset('images')}}/home/shipping.jpg" alt="" />
