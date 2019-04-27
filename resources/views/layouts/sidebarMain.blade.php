@@ -44,29 +44,38 @@
                 </ul>
             </div>-->
         </div><!--/brands_products-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
+        <link href = "{{asset('css')}}/jquery-ui.css" rel="stylesheet">
+        <script src="{{asset('js')}}/jquery.js"></script>
+        <script src="{{asset('js')}}/jquery-ui.js"></script>
 
         <div class="price-range"><!--price-range-->
+
             <h2>Price Range</h2>
+            Price :<span id = "spa"></span>
             <div class="well text-center">
-                <input type="text" id="range" ><br />
-                <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
+               <div id = "range"></div>
             </div>
         </div><!--/price-range-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js"></script>
-        <script src="{{asset('js')}}/jquery.js"></script>
+      <a href = "" class = "btn btn-primary">Filter</a>
+
+
+
 <script>
 
-    var slider = new Slider("#range", {
-        min: 0,
-        max: 100,
-        value: [50, 80],
-        range: true,
-        tooltip: 'always'
-    });
+    var spa = $("#spa");
 
-    console.log($("#range").val());
+
+ $("#range").slider({
+    range:true,
+     min:0,
+     max:1000,
+     values:[50,500],
+     slide:function (event,ui) {
+         spa.html(ui.values[0] + "$-" + ui.values[1]+"$");
+     }
+
+ })
+    spa.html($("#range").slider("values",0)+ "$-" + $("#range").slider("values",1)+"$");
 </script>
 
         <div class="shipping text-center"><!--shipping-->
