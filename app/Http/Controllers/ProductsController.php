@@ -211,6 +211,14 @@ class ProductsController extends Controller
 
     }
 
+    public function priceChange(Request $request,$min,$max){
 
+
+        $products = Product::where('price','<',$max)
+            ->where('price','>',$min)
+            ->paginate('6');
+
+        return view('products',['products' => $products]);
+    }
 
 }

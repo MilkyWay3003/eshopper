@@ -13,7 +13,7 @@
 
 Route::get('/', ['uses' => 'ProductsController@index',"as" => "allProducts"]);
 
-
+Route::get('/priceChange/{min}/{max}', ['uses' => 'ProductsController@priceChange',"as" => "priceChange"]);
 
 //Dispay all the products on user's products page
 Route::get('products', ['uses' => 'ProductsController@index',"as" => "allProducts"]);

@@ -56,7 +56,7 @@
                <div id = "range"></div>
             </div>
         </div><!--/price-range-->
-      <a href = "" class = "btn btn-primary">Filter</a>
+      <a href = "{{route('priceChange',['min' => 60, 'max' => 120 ])}}" class = "btn btn-primary">Filter</a>
 
 
 
@@ -72,6 +72,7 @@
      values:[50,500],
      slide:function (event,ui) {
          spa.html(ui.values[0] + "$-" + ui.values[1]+"$");
+         
      }
 
  })
